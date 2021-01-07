@@ -4,21 +4,21 @@
 <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
 
 {% block content %}
-<nav class="navbar navbar-dark bg-dark">
+<nav class="navbar navbar-dark bg-warning">
 <ul class="nav">
   <li class="nav-item">
-    <a class="nav-link active" href="/polls/index">Home</a>
+    <a class="nav-link active" href="/exam/index">Home</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="/polls/create">Create Tournament</a>
+    <a class="nav-link" href="/exam/create">Create Tournament</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="/polls/logout">Logout</a>
+    <a class="nav-link" href="/exam/logout">Logout</a>
   </li>
 </ul>
 </nav>
 <div class="container">
-<form method="POST" action="{% url 'polls:signup' %}">
+<form method="POST" action="{% url 'exam:signup' %}">
     {% csrf_token %}
     <label for="name">Username:</label>
     <input type="text" id="name" name="username" class="form-control" placeholder="Username">

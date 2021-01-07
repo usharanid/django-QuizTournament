@@ -2,6 +2,7 @@
 
 from django.db import migrations, models
 import django.db.models.deletion
+import datetime
 
 
 class Migration(migrations.Migration):
@@ -20,6 +21,7 @@ class Migration(migrations.Migration):
                 ('tournament', models.IntegerField()),
                 ('current_question', models.IntegerField()),
                 ('score', models.IntegerField()),
+                ('start_datetime', models.DateTimeField(default=datetime.datetime.now())),
             ],
         ),
         migrations.CreateModel(
@@ -39,7 +41,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('question_text', models.CharField(max_length=200)),
                 ('correct_ans', models.CharField(max_length=200)),
-                ('tournament', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='polls.Tournament')),
+                ('tournament', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='exam.Tournament')),
             ],
         ),
         migrations.CreateModel(
@@ -47,7 +49,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('answer_text', models.CharField(max_length=200)),
-                ('question', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='polls.Question')),
+                ('question', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='exam.Question')),
             ],
         ),
     ]

@@ -3,19 +3,17 @@
 <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
 
 {% block content %}
-<nav class="navbar navbar-dark bg-dark">
+<nav class="navbar navbar-dark bg-warning">
 <ul class="nav">
   <li class="nav-item">
-    <a class="nav-link active" href="/polls/index">Home</a>
+    <a class="nav-link active" href="/eam/index">Home</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="/polls/create">Create Quiz</a>
+    <a class="nav-link" href="/exam/create">Create Quiz</a>
   </li>
+
   <li class="nav-item">
-    <a class="nav-link" href="/polls/highscores">Highscore</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="/polls/logout">Logout</a>
+    <a class="nav-link" href="/exam/logout">Logout</a>
   </li>
 </ul>
 </nav>
@@ -23,7 +21,7 @@
 <h1 class="tournament_title">{{tournament.name}}</h1><br>
 <h2>Queston {{question_num}}:</h2>
 <h3 class="question">{{ question.question_text|safe }}</h3>
-<form method="POST" action="{% url 'polls:check_answer' %}">
+<form method="POST" action="{% url 'exam:check_answer' %}">
     {% csrf_token %}
     {% for a in answers %}
         <input type="radio" class="radio" name="answers" value="{{ a.answer_text }}">{{ a.answer_text|safe }}<br>

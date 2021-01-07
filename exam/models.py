@@ -1,4 +1,5 @@
 from django.db import models
+import datetime
 
 
 class Tournament(models.Model):
@@ -42,3 +43,4 @@ class Player_Scores(models.Model):
     tournament = models.IntegerField()
     current_question = models.IntegerField()
     score = models.IntegerField()
+    start_datetime = models.DateTimeField()
